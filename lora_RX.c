@@ -138,7 +138,7 @@ void loop()
         Serial.println(error.c_str());
       }
       const bool status_flag = doc1["status"];
-      Serial.println("Status flag: " + status_flag);     //WHY ARE U GETTING BACK FALSE??
+      Serial.println("Status flag: " + status_flag);     
       http.end();
 
       if (status_flag ==1)
@@ -167,14 +167,12 @@ void parseData(String data)
     Serial.println("code 3");
     int comma2Index = data.indexOf(',', comma1Index + 1);
     int comma3Index = data.indexOf(',', comma2Index + 1);
-    //int comma4Index = data.indexOf(',', comma3Index + 1);
 
     Serial.println("code 4");
     latVal = data.substring(0, comma1Index);
     lngVal = data.substring(comma1Index + 1, comma2Index);
     String tempVal = data.substring(comma2Index + 1, comma3Index);
     tempVal2 = tempVal.substring(0, 2);  //for some reason additional values are at end of temp therefore make new temp val with only 2 characters of original temp
-    //String fourthValue = data.substring(comma3Index + 1, comma4Index);
 
     Serial.println("code is here");
     Serial.println("lat value: " + latVal);
